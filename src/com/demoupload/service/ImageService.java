@@ -44,6 +44,8 @@ public class ImageService {
 		try {
 			con = SQLConnection.getConnection();
 			pstmt = con.prepareStatement("insert into image(name, description) values(?, ?);");
+			pstmt.setString(1, img.getName());
+			pstmt.setString(2, img.getDescription());
 			
 			result = pstmt.executeUpdate();
 			
